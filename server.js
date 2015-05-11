@@ -11,7 +11,8 @@ var socketIoCli=socketIoClient(),
 	app = express()
 	
 
-app.listen(config.port);
+//app.listen(config.port);
+app.listen(process.env.PORT || 3000)
 
 
 module.exports = app;
