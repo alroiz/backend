@@ -7,7 +7,8 @@ module.exports = function(socketIoClient) {
 		date: {type: Date, default: Date.now},
 		mac: String,
 		ip: String,
-		package: String
+		package: String,
+		type: String
 	});
 
 	DownloadSchema.post('save', function (doc) {
