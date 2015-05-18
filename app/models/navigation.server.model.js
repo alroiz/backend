@@ -3,12 +3,12 @@ var mongoose = require('mongoose'),
 
 module.exports = function(socketIoClient) {
 	var NavigationSchema = new Schema({
-		id: String,
-		date: {type: Date, default: Date.now},
-		mac: String,
-		ip: String,
-		menu: String,
-		option: String
+		id: { type: String, required:true},
+		date: { type: Date, default: Date.now },
+		mac: { type:String, required:true},
+		ip: { type:String, required:true},
+		menu: { type:String, required:true},
+		option: { type:String, required:true}
 	});
 
 	NavigationSchema.post('save', function (doc) {

@@ -4,11 +4,11 @@ var mongoose = require('mongoose'),
 
 module.exports = function(socketIoClient) {
 	var ExecutionSchema = new Schema({
-		id: String,
-		date: {type: Date, default: Date.now},
-		mac: String,
-		ip: String,
-		package: String
+		id: { type: String, required:true},
+		date: { type: Date, default: Date.now },
+		mac: { type:String, required:true},
+		ip: { type:String, required:true},
+		package: { type:String, required:true}
 	});
 
 	ExecutionSchema.post('save', function (doc) {
