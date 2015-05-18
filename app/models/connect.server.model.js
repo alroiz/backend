@@ -1,14 +1,14 @@
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema
+var mongoose = require('mongoose')
+	//Schema = mongoose.Schema
 var util = require('util');
 var schemas=require('./schemas/connect.server.schema.js');
 
 
 module.exports = function(socketIoClient) {
-	var ConnectSchema = new Schema(schemas.getConnectSchema());
-    var ConnectDailySchema = new Schema(schemas.getConnectDailySchema());
-    var ConnectMonthlySchema = new Schema(schemas.getConnectMonthlySchema());
-    var ConnectYearlySchema = new Schema(schemas.getConnectYearlySchema());
+	var ConnectSchema = schemas.getConnectSchema();
+    var ConnectDailySchema = schemas.getConnectDailySchema();
+    var ConnectMonthlySchema =schemas.getConnectMonthlySchema();
+    var ConnectYearlySchema = schemas.getConnectYearlySchema();
     mongoose.model('Connect', ConnectSchema);
     mongoose.model('ConnectDaily', ConnectDailySchema);
     mongoose.model('ConnectMonthly', ConnectMonthlySchema);
@@ -47,12 +47,11 @@ module.exports = function(socketIoClient) {
                 upd.$inc['sum']=1;     
                 upd.$set['metadata.date']= new Date(tsDaily.toISOString())      
                 return upd;
-            }()
-
-        var queryMonthly = {
-            'id': idMonthly,
-            'metadata.app.name':doc.app.name,
-            'metadata.app.version':doc.app.version
+            }(),
+            queryMonthly = {
+                'id': idMonthly,
+                'metadata.app.name':doc.app.name,
+                'metadata.app.version':doc.app.version
             },
             updateMonthly=function(){
                 var upd={ $inc: {}, $set:{} }; 
@@ -67,12 +66,12 @@ module.exports = function(socketIoClient) {
                 upd.$inc['sum']=1;        
                 upd.$set['metadata.date']= new Date(tsMonthly.toISOString())         
                 return upd;
-            }();
+            }(),
 
-        var queryYearly = {
-            'id': idYearly,
-            'metadata.app.name':doc.app.name,
-            'metadata.app.version':doc.app.version
+            queryYearly = {
+                'id': idYearly,
+                'metadata.app.name':doc.app.name,
+                'metadata.app.version':doc.app.version
             },
             updateYearly=function(){
                 var upd={ $inc: {}, $set:{} }; 

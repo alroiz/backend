@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
 Schema = mongoose.Schema
 
-exports.getConnectSchema = function() {	
+exports.getExecutionSchema = function() {	
 	return new Schema({
         app:{
             name: { type: String, required:true, default: "myApp"},
@@ -9,11 +9,12 @@ exports.getConnectSchema = function() {
         },
 		date: { type: Date, default: Date.now },
 		mac: { type:String, required:true},
-		ip: { type:String, required:true}
+		ip: { type:String, required:true},
+        package: { type:String, required:true}
 	})
 };
 
-exports.getConnectDailySchema = function() {	
+exports.getExecutionDailySchema = function() {	
 	return new Schema({
         id: { type: String, required:true},
         metadata: {
@@ -21,7 +22,8 @@ exports.getConnectDailySchema = function() {
             app:{
                 name: { type: String, required:true,default: "myApp"},
                 version: { type: String, required:true, default:"0"}                
-            }
+            },
+            package: { type:String, required:true}
         },
         sum:{ type: Number, default:0},
         hourly:{
@@ -53,17 +55,17 @@ exports.getConnectDailySchema = function() {
     })
 };
 
-exports.getConnectMonthlySchema = function() {	
-	return new Schema({
+exports.getExecutionMonthlySchema = function() {	
+    return new Schema({
         id: { type: String, required:true},
         metadata: {
-            date: { type: Date, required:true },//Day scope
+            date: { type: Date, required:true },//Monthly scope
             app:{
                 name: { type: String, required:true,default: "myApp"},
                 version: { type: String, required:true, default:"0"}                
-            }
+            },
+            package: { type:String, required:true}
         },
-        sum:{ type: Number, default:0},
         daily:{
             "0":{ type: Number, default:0},
             "1":{ type: Number, default:0},
@@ -101,18 +103,17 @@ exports.getConnectMonthlySchema = function() {
     })
 };
 
-exports.getConnectYearlySchema = function() {	
-	return new Schema({
+exports.getExecutionYearlySchema = function() {	
+    return new Schema({
         id: { type: String, required:true},
         metadata: {
-            date: { type: Date, required:true },//Day scope
+            date: { type: Date, required:true },//Year scope
             app:{
                 name: { type: String, required:true,default: "myApp"},
                 version: { type: String, required:true, default:"0"}                
-            }
+            },
+            package: { type:String, required:true}
         },
-        avg:{ type: Number, default:0},
-        sum:{ type: Number, default:0},
         monthly:{
             "0":{ type: Number, default:0},
             "1":{ type: Number, default:0},
