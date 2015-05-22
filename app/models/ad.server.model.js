@@ -71,7 +71,7 @@ module.exports = function(socketIoClient) {
             }(),
 
             queryYearly = {
-            	'id':idMonthly,
+            	'id':idYearly,
             	'metadata.banner':doc.banner,
             	'metadata.app.name':doc.app.name,
             	'metadata.app.version':doc.app.version
@@ -117,6 +117,5 @@ module.exports = function(socketIoClient) {
 		console.log('%s Connect Ad has been saved', doc._id);
 		
 	});
-
 	mongoose.model('Ad', AdSchema);
 };
