@@ -71,6 +71,7 @@ exports.getNavigationMonthlySchema = function() {
                 version: { type: String, required:true, default:"0"}                
             }
         },
+        sum:{ type: Number, default:0},
         daily:{
             "0":{ type: Number, default:0},
             "1":{ type: Number, default:0},
@@ -120,6 +121,7 @@ exports.getNavigationYearlySchema = function() {
                 version: { type: String, required:true, default:"0"}                
             }
         },
+        sum:{ type: Number, default:0},
         monthly:{
             "0":{ type: Number, default:0},
             "1":{ type: Number, default:0},

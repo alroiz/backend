@@ -66,6 +66,7 @@ exports.getExecutionMonthlySchema = function() {
             },
             package: { type:String, required:true}
         },
+        sum:{ type: Number, default:0},
         daily:{
             "0":{ type: Number, default:0},
             "1":{ type: Number, default:0},
@@ -114,6 +115,7 @@ exports.getExecutionYearlySchema = function() {
             },
             package: { type:String, required:true}
         },
+        sum:{ type: Number, default:0},
         monthly:{
             "0":{ type: Number, default:0},
             "1":{ type: Number, default:0},

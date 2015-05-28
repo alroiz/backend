@@ -10,7 +10,7 @@ exports.getConnectSchema = function() {
 		date: { type: Date, default: Date.now },
 		mac: { type:String, required:true},
 		ip: { type:String, required:true},
-        mem: { type:String, required:true}        
+        mem: { type:String }        
 	})
 };
 
@@ -112,7 +112,7 @@ exports.getConnectYearlySchema = function() {
                 version: { type: String, required:true, default:"0"}                
             }
         },
-        avg:{ type: Number, default:0},
+        //avg:{ type: Number, default:0},
         sum:{ type: Number, default:0},
         monthly:{
             "0":{ type: Number, default:0},
