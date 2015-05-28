@@ -56,9 +56,9 @@ module.exports = function(socketIoClient) {
             },
             updateMonthly=function(){
                 var upd={ $inc: {}, $set:{} }; 
-                var days=new Date(y, m, 0).getDate();
+                var days=new Date(y, m+1, 0).getDate();
                 for (var i=0;i<days;i++){
-                    if (i===parseInt(d)){
+                    if (i===parseInt(d)-1){
                         upd.$inc['daily.'+i]=1;
                     }else{
                         upd.$inc['daily.'+i]=0;
