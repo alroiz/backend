@@ -9,7 +9,8 @@ exports.getConnectSchema = function() {
         },
 		date: { type: Date, default: Date.now },
 		mac: { type:String, required:true},
-		ip: { type:String, required:true}
+		ip: { type:String, required:true},
+        mem: { type:String, required:true}        
 	})
 };
 
