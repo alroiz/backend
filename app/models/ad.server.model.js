@@ -22,9 +22,13 @@ module.exports = function(socketIoClient) {
             d=("0" + (doc.date.getDate())).slice(-2),
             h=parseInt(("0" + (doc.date.getHours())).slice(-2))
 
-        var idDaily = ""+y+m+d+"/"+doc.banner+"/"+doc.app.name+"/"+doc.app.version;
-        var idMonthly = ""+y+m+"/"+doc.banner+"/"+doc.app.name+"/"+doc.app.version;
-        var idYearly = ""+y+"/"+doc.banner+"/"+doc.app.name+"/"+doc.app.version;
+        //var idDaily = ""+y+m+d+"/"+doc.banner+"/"+doc.app.name+"/"+doc.app.version;
+        //var idMonthly = ""+y+m+"/"+doc.banner+"/"+doc.app.name+"/"+doc.app.version;
+        //var idYearly = ""+y+"/"+doc.banner+"/"+doc.app.name+"/"+doc.app.version;
+        var idDaily = parseInt(""+y+m+d);
+        var idMonthly = parseInt(""+y+m);
+        var idYearly = parseInt(""+y);
+                
         var tsDaily = new Date(y,parseInt(m),parseInt(d),parseInt(h));
         var tsMonthly = new Date(y,parseInt(m),parseInt(d));
         var tsYearly = new Date(y,parseInt(m));
@@ -117,5 +121,4 @@ module.exports = function(socketIoClient) {
 		console.log('%s Connect Ad has been saved', doc._id);
 		
 	});
-	mongoose.model('Ad', AdSchema);
 };

@@ -22,9 +22,12 @@ module.exports = function(socketIoClient) {
             d=("0" + (doc.date.getDate())).slice(-2),
             h=parseInt(("0" + (doc.date.getHours())).slice(-2))
 
-        var idDaily = ""+y+m+d+"/"+doc.package+"/"+doc.app.name+"/"+doc.app.version;
-        var idMonthly = ""+y+m+"/"+doc.package+"/"+doc.app.name+"/"+doc.app.version;
-        var idYearly = ""+y+"/"+doc.package+"/"+doc.app.name+"/"+doc.app.version;
+        //var idDaily = ""+y+m+d+"/"+doc.package+"/"+doc.app.name+"/"+doc.app.version;
+        //var idMonthly = ""+y+m+"/"+doc.package+"/"+doc.app.name+"/"+doc.app.version;
+        //var idYearly = ""+y+"/"+doc.package+"/"+doc.app.name+"/"+doc.app.version;
+        var idDaily = ""+y+m+d;
+        var idMonthly = ""+y+m;
+        var idYearly = ""+y;        
         var tsDaily = new Date(y,parseInt(m),parseInt(d),parseInt(h));
         var tsMonthly = new Date(y,parseInt(m),parseInt(d));
         var tsYearly = new Date(y,parseInt(m));
@@ -116,6 +119,4 @@ module.exports = function(socketIoClient) {
 		socketIoClient.emit('updateExecution',doc);
 		console.log('%s Execution has been saved', doc._id);
 	})
-
-	mongoose.model('Execution', ExecutionSchema);
 }
