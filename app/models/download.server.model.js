@@ -24,9 +24,9 @@ module.exports = function(socketIoClient) {
         //var idDaily = ""+y+m+d+"/"+doc.package+"."+doc.type+"/"+doc.app.name+"/"+doc.app.version;
         //var idMonthly = ""+y+m+"/"+doc.package+"."+doc.type+"/"+doc.app.name+"/"+doc.app.version;
         //var idYearly = ""+y+"/"+doc.package+"."+doc.type+"/"+doc.app.name+"/"+doc.app.version;
-        var idDaily = ""+y+m+d;
-        var idMonthly = ""+y+m;
-        var idYearly = ""+y;
+        var idDaily = parseInt(""+y+m+d);
+        var idMonthly = parseInt(""+y+m);
+        var idYearly = parseInt(""+y);
 
         var tsDaily = new Date(y,parseInt(m),parseInt(d),parseInt(h));
         var tsMonthly = new Date(y,parseInt(m),parseInt(d));

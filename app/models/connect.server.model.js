@@ -24,11 +24,11 @@ module.exports = function(socketIoClient) {
             h=parseInt(("0" + (doc.date.getHours())).slice(-2))
 
         //var idDaily = ""+y+m+d+"/"+ doc.app.name+"/"+doc.app.version;
-        var idDaily = ""+y+m+d;
         //var idMonthly = ""+y+m+"/"+ doc.app.name+"/"+doc.app.version;
-        var idMonthly = ""+y+m;
         //var idYearly = ""+y+"/"+ doc.app.name+"/"+doc.app.version;
-        var idYearly = ""+y;
+        var idDaily = parseInt(""+y+m+d);
+        var idMonthly = parseInt(""+y+m);
+        var idYearly = parseInt(""+y);        
         var tsDaily = new Date(y,parseInt(m),parseInt(d),parseInt(h));
         var tsMonthly = new Date(y,parseInt(m),parseInt(d));
         var tsYearly = new Date(y,parseInt(m));
