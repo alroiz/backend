@@ -17,3 +17,4 @@ app.listen(process.env.PORT || 3000)
 
 module.exports = app;
 console.log(process.env.NODE_ENV  + ' server running at http://localhost:' + config.port);
+console.log('webSocket Server:'+config.socketServer)
